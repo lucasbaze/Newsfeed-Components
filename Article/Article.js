@@ -141,6 +141,7 @@ articleCreator = article => {
 
     span.addEventListener('click', event => {
         event.path[1].classList.toggle('article-open');
+        event.target.textContent = 'Click to Close';
     });
 
     return div;

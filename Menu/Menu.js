@@ -41,13 +41,20 @@ let menuItems = [
 menuCreator = menuItems => {
     let div = document.createElement('div');
     let ul = document.createElement('ul');
+    let text = document.createElement('p');
     menuItems.forEach(item => {
         let menuItem = document.createElement('li');
         menuItem.textContent = item;
         ul.append(menuItem);
     });
+
+    text.addEventListener('click', event => {
+        event.path[1].classList.toggle('menu--open');
+        document.querySelector('body').classList.toggle('body--open');
+    });
+
     div.classList.add('menu');
-    div.append(ul);
+    div.append(text, ul);
     console.log(div);
     return div;
 };
@@ -55,6 +62,13 @@ menuCreator = menuItems => {
 let menuButton = document.querySelector('.menu-button');
 menuButton.addEventListener('click', event => {
     document.querySelector('.menu').classList.toggle('menu--open');
+    document.querySelector('body').classList.toggle('body--open');
 });
 
 document.querySelector('.header').prepend(menuCreator(menuItems));
+
+//
+//Stretch Animations
+//
+
+TweenMax.to('h1', 1, { scale: 1.2 });

@@ -32,6 +32,7 @@
   height: 70px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition: all 1s;
 }
 .article h2 {
   font-size: 28px;
@@ -57,6 +58,7 @@
   background-color: #81c784;
   padding: 10px 20px;
   border-radius: 10px;
+  transition: all 1s;
 }
 .article-open {
   height: 600px;
@@ -70,19 +72,20 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
-  top: 75px;
+  top: 0;
   left: 0;
-  width: 100vw;
+  width: 0;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
   background-color: #81c784;
   border: 1px solid #004d40;
   border-left: none;
   border-bottom: none;
-  z-index: 2;
+  overflow-x: hidden;
+  z-index: 1;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
+  transition: 0.5s;
 }
 .menu ul li {
   list-style-type: none;
@@ -91,7 +94,10 @@
   text-align: center;
 }
 .menu--open {
-  display: block;
+  width: 250px;
+}
+.body--open {
+  margin-left: 250px;
 }
 .header {
   width: 100%;
@@ -115,4 +121,5 @@ body {
   padding: 0;
   font-family: 'Roboto';
   background-color: #fffef7;
+  transition: 0.5s;
 }
